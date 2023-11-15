@@ -1,0 +1,17 @@
+.product-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 16px; /* Замінила margin-bottom на margin-right */
+  }
+  
+  .product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 16px;
+  }
+  
+  

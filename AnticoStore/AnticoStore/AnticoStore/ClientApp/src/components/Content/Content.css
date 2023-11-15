@@ -1,0 +1,41 @@
+.content-container {
+  margin: 20px 300px;
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  background-color: #f6f6f6;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.category-wrapper {
+  width: 70%;
+}
+
+.searchbar-slider-wrapper {
+  width: 67%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.searchbar-wrapper {
+  width: 100%;
+}
+
+.slider-wrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.productlist-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap; /* Змінила на nowrap */
+  overflow-x: auto; /* Додала можливість прокрутки горизонтально */
+}

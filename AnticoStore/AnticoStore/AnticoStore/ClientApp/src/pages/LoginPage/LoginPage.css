@@ -1,0 +1,49 @@
+
+.login-container {
+  background-image: url("../../../public/img/tlo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.boxlogin {
+    border: 1px solid black;
+    width: max-content;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+  
+  .boxlogin .input {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    outline-color: transparent;
+    
+  }
+  
+  .boxlogin button {
+    width: 100%;
+    height: 48px;
+    /* border-color: transparent; */
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+  }
+  .boxlogin button:hover {
+    background-color: white;
+    color: #002f34;
+    border: 2px solid #002f34;
+  }
+  
+  .boxlogin a {
+    
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+ 
+  

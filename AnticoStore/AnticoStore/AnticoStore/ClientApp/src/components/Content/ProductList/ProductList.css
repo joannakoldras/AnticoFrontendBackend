@@ -1,0 +1,15 @@
+.product-list {
+  width: 75%;
+  padding: 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px; /* Додано зазор між продуктами */
+}
+

@@ -1,0 +1,63 @@
+*{
+  font-family: Montserrat;
+  font-size: 20px;
+}
+.footer {
+    background-color: #ebeaea;
+    padding: 32px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+  }
+  .footer p{
+    color:black;
+    position: absolute;
+    left: 505px;
+    bottom: 20px;
+  
+  }
+
+  .contact{
+    color:black;
+    position: absolute;
+    left: 746px;
+    bottom: 20px;
+    
+  }
+
+  .info{
+    color:black;
+    position: absolute;
+    left: 950px;
+    bottom: 20px;
+    
+  }
+
+  .reklama{
+    color:black;
+    position:absolute;
+    left: 1063px;
+    bottom: 20px;
+   
+  }
+
+  .facebook img{
+   
+    width: 50px;
+    position: absolute;
+    right: 163px;
+    bottom: 8px;
+    
+  }
+
+  .instagram img{
+   
+    width: 50px;
+    position: absolute;
+    right: 223px;
+    bottom: 8px;
+    
+  }

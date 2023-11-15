@@ -1,0 +1,90 @@
+/* Header.css */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  position: sticky;
+  height: 85px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #E5A935;
+  z-index: 9;
+  padding: 9px 9vw;
+    display: flex;
+    justify-content: space-between;
+}
+  
+  .header-button {
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+    width: 280px;
+    height: 58px;
+    right: 444px;
+    top: 17px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: Montserrat; /* Виберіть бажаний шрифт */
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+.link1 {
+  color: rgb(255, 255, 255); 
+  position: absolute;
+  text-decoration: none; 
+  font-size: 18px;
+  right: 275px;
+  top: 8px;
+  text-align: center;
+  font-family: Montserrat;
+  display: inline-block;
+  
+}
+
+.link1 img{
+  display: block; /* Зробити картинку блочним елементом */
+  margin: 0 auto 3px;
+}
+
+.link2 {
+  color: rgb(255, 255, 255); 
+  text-decoration: none; 
+  font-size: 18px; 
+  position: absolute;
+  right: 160px;
+  top: 8px;
+  font-family: Montserrat;
+  text-align: center;
+  display: inline-block;
+}
+
+.link2 img{
+  width: 55%;;
+  display: block; /* Зробити картинку блочним елементом */
+  margin: 0 auto 2px;
+}
+
+  .logo{
+    position: absolute;
+    font-size: 65px; 
+    font-family: Keania One;
+    color: rgb(0, 0, 0); 
+    left: 300px;
+    text-decoration: none;
+    
+}
+
+
+  
+  .header-button:hover {
+    background-color: #e0e0e0;
+  }
+
+ 
