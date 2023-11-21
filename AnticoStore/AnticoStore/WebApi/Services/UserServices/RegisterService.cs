@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApi.DataWrappers;
+using WebApi.Encryption;
 using WebApi.Mappers;
 using WebApi.ViewModels;
 
@@ -12,11 +13,19 @@ namespace WebApi.Services.UserServices
 {
     public class RegisterService : IRegisterService
     {
+        private PasswordEncrypter _passwordEncrypter { get; set; }
+        public RegisterService()
+        {
+            _passwordEncrypter = new PasswordEncrypter(); 
+        }
+
         public DataResult RegisterUser(UserViewModel userVM)
         {
             using (var dbContext = new AnticoDbContext())
             {
                 var user = userVM.ToUserDbModel();
+                var encryptedPassword = _passwordEncrypter.Encrypt(user.EncryptedPassword);
+                user.EncryptedPassword = encryptedPassword; 
 
                 var dbUser = dbContext.Users.
                     Where(x => x.Email == user.Email &&
