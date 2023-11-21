@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nZB5qtQk+Yg+LSSRK47N60GPt1FesWnKn0mjKtvfs/4H9V6uazFMk8vtIWDmnElaCd6o29AZnNRvbjl5e5E3Nw==",
+  "dgSpecHash": "c1qEOsP+oGkL0/iK+NzI6UmQKBJrDY3qdYG0QCBgzZdX5UpP6d3EauILfK/LYKZoQWHehxWqdcKJ3sFWGzVVjg==",
   "success": true,
-  "projectFilePath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
+  "projectFilePath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joannakoldras\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\joannakoldras\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

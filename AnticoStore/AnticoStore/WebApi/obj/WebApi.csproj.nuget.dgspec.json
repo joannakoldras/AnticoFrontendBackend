@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj": {}
+    "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj": {
+    "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
+        "projectUniqueName": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
         "projectName": "Database",
-        "projectPath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
+        "projectPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
         "packagesPath": "C:\\Users\\joannakoldras\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\obj\\",
+        "outputPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joannakoldras\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj": {
+    "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\joannakoldras\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\WebApi\\obj\\",
+        "outputPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joannakoldras\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj": {
-                "projectPath": "\\\\Mac\\Home\\Downloads\\AnticoStore\\AnticoStore\\Database\\Database.csproj"
+              "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj": {
+                "projectPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj"
               }
             }
           }
@@ -103,6 +103,24 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
