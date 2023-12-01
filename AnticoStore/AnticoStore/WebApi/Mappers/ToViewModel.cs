@@ -17,7 +17,7 @@ namespace WebApi.Mappers
             productVM.Id = product.Id;
             productVM.Name = product.Name;
             productVM.Description = product.Description;
-            //productVM.Category = (ProductCategoryEnum)product.CategoryId; //mechanizm konwertowania string na enum
+            productVM.Category = (ProductCategoryEnum)product.CategoryId; 
             productVM.IsAvaliable = product.IsAvaliable;
             productVM.FilePathPhoto = product.FilePathPhoto;
             productVM.Price = product.Price;

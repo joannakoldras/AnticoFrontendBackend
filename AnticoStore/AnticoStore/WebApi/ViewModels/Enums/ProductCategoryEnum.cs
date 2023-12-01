@@ -11,6 +11,7 @@ namespace WebApi.ViewModels.Enums
         krzeslo = 1,
         mebel = 2,
         naczynia = 3,
+        sztucce = 4, 
         //dodawac kategorie - ProductCategories db
     }
 }
