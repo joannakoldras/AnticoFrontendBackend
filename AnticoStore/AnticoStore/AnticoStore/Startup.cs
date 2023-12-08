@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace AnticoStore
 {
@@ -21,6 +23,13 @@ namespace AnticoStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10); 
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
 
             //services.AddControllersWithViews();                                      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
             // In production, the React files will be served from this directory     
@@ -55,6 +64,7 @@ namespace AnticoStore
                 app.UseHsts();
             }
 
+            app.UseSession(); 
 
             app.UseSwagger();           // odkomentowac aby wlaczyc swaggera
             app.UseSwaggerUI();         // odkomentowac aby wlaczyc swaggera
