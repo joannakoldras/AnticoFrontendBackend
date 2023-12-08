@@ -15,10 +15,12 @@ namespace AnticoStore.Controllers
     public class ShoppingCartController : ControllerBase
     {
         private IShoppingCartService _shoppingCartService { get; set; }
+        private IHttpContextAccessor _httpContextAccessor; 
 
-        public ShoppingCartController()
+        public ShoppingCartController(IHttpContextAccessor httpContextAccessor)
         {
-            _shoppingCartService = new ShoppingCartService();
+            _httpContextAccessor = httpContextAccessor;
+            _shoppingCartService = new ShoppingCartService(_httpContextAccessor);
         }
 
         [HttpPost("Products")]
@@ -30,7 +32,7 @@ namespace AnticoStore.Controllers
         [HttpGet("Products")]
         public DataResult GetAllProductsFromShoppingCart()
         {
-            return _shoppingCartService.GetAllProductsFromShoppingCart();
+            return _shoppingCartService.GetAllProductsFromShoppingCart(); 
         }
 
         [HttpDelete("Products")]

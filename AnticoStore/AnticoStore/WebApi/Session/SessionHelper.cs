@@ -10,11 +10,11 @@ namespace WebApi.Session
 {
      public class SessionHelper 
     {
-        private IHttpContextAccessor httpContextAccessor;
+        private IHttpContextAccessor _httpContextAccessor { get; set; }
         private int sessionItemCounter; 
-        public SessionHelper()
+        public SessionHelper(IHttpContextAccessor httpContextAccessor)
         {
-            httpContextAccessor = new HttpContextAccessor();
+            _httpContextAccessor = httpContextAccessor; 
             sessionItemCounter = 0;
             CountItemsInSession(); 
         }
@@ -28,23 +28,22 @@ namespace WebApi.Session
             var items = new List<Product>(); 
             for (int i=0; i<sessionItemCounter; i++)
             {
-               // var sessionItem = GetObjectFromJson<Product>(i.ToString()); 
-                //items.Add(sessionItem); 
+                var sessionItem = GetObjectFromJson<Product>(i.ToString()); 
+                items.Add(sessionItem); 
             } 
             return items;  
         }
 
         private void SetObjectAsJson(string key, object value)
         {
-            //httpContextAccessor.HttpContext.Session.SetString(sessionItemCounter.ToString(), JsonConvert.SerializeObject(value));
+            _httpContextAccessor.HttpContext.Session.SetString(sessionItemCounter.ToString(), JsonConvert.SerializeObject(value));
         }
 
-        //private T GetObjectFromJson<T>(string key)
-        //{
-        //    //var value = httpContextAccessor.HttpContext.Session.GetString(key);
-        //    //return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value); 
-        //    return string.Empty; 
-        //}
+        private T GetObjectFromJson<T>(string key)
+        {
+            var value = _httpContextAccessor.HttpContext.Session.GetString(key);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value); 
+        }
 
         //do naprawy ponowne ustawianie obiektów w sesji
         public bool DeleteItemFromSession(Product product)
@@ -74,12 +73,12 @@ namespace WebApi.Session
 
         private void ClearSession()
         {
-            httpContextAccessor.HttpContext.Session.Clear(); 
+            _httpContextAccessor.HttpContext.Session.Clear(); 
         }
 
         private void CountItemsInSession()
         {
-            sessionItemCounter = httpContextAccessor.HttpContext.Session.Keys.Count(); 
+            sessionItemCounter = _httpContextAccessor.HttpContext.Session.Keys.Count(); 
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,12 @@ namespace WebApi.Services.ShopingCartServices
     public class ShoppingCartService : IShoppingCartService
     {
         private ShoppingCart shoppingCart { get; set; }
+        private IHttpContextAccessor _httpContextAccessor1 { get; set; } 
 
-        public ShoppingCartService()
+        public ShoppingCartService(IHttpContextAccessor httpContextAccessor1)
         {
-            shoppingCart = new ShoppingCart();
+            _httpContextAccessor1 = httpContextAccessor1; 
+            shoppingCart = new ShoppingCart(_httpContextAccessor1);
         }
 
         public DataResult AddProductToShoppingCart(ProductViewModel productVM)
