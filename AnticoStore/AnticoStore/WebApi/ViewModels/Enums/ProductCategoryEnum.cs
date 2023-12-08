@@ -8,10 +8,14 @@ namespace WebApi.ViewModels.Enums
 {
     public enum ProductCategoryEnum
     {
-        krzeslo = 1,
-        mebel = 2,
-        naczynia = 3,
-        sztucce = 4, 
+        malarstwo = 1,
+        bizuteria = 2,
+        meble = 3,
+        lampy = 4, 
+        zegary = 5, 
+        porcelana_i_ceramika = 6, 
+        literatura = 7, 
+        pozostale = 8, 
         //dodawac kategorie - ProductCategories db
     }
 }
