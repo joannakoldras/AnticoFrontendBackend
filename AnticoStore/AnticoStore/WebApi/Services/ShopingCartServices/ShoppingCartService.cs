@@ -14,12 +14,10 @@ namespace WebApi.Services.ShopingCartServices
     public class ShoppingCartService : IShoppingCartService
     {
         private ShoppingCart shoppingCart { get; set; }
-        private IHttpContextAccessor _httpContextAccessor1 { get; set; } 
 
-        public ShoppingCartService(IHttpContextAccessor httpContextAccessor1)
+        public ShoppingCartService(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor1 = httpContextAccessor1; 
-            shoppingCart = new ShoppingCart(_httpContextAccessor1);
+            shoppingCart = new ShoppingCart(httpContextAccessor);
         }
 
         public DataResult AddProductToShoppingCart(ProductViewModel productVM)

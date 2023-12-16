@@ -12,12 +12,10 @@ namespace WebApi.DomainModels
     public class ShoppingCart
     {
         private SessionHelper sessionHelper { get; set; }
-        private IHttpContextAccessor _httpContextAccessor { get; set; } 
 
         public ShoppingCart(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor; 
-            this.sessionHelper = new SessionHelper(_httpContextAccessor);
+            this.sessionHelper = new SessionHelper(httpContextAccessor);
         }
 
         public void AddToShoppingCart(Product product)

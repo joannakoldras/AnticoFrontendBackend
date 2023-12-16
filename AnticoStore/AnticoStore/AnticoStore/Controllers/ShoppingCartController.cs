@@ -19,8 +19,7 @@ namespace AnticoStore.Controllers
 
         public ShoppingCartController(IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor;
-            _shoppingCartService = new ShoppingCartService(_httpContextAccessor);
+            _shoppingCartService = new ShoppingCartService(httpContextAccessor);
         }
 
         [HttpPost("Products")]
