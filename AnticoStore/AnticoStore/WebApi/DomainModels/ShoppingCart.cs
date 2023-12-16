@@ -1,4 +1,5 @@
 ﻿using Database.DbModels;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,11 @@ namespace WebApi.DomainModels
 {
     public class ShoppingCart
     {
-        private List<Product> products { get; set; }
         private SessionHelper sessionHelper { get; set; }
-        public ShoppingCart()
+
+        public ShoppingCart(IHttpContextAccessor httpContextAccessor)
         {
-            this.products = new List<Product>();
-            this.sessionHelper = new SessionHelper();
+            this.sessionHelper = new SessionHelper(httpContextAccessor);
         }
 
         public void AddToShoppingCart(Product product)
@@ -27,12 +27,6 @@ namespace WebApi.DomainModels
         {
             var result = sessionHelper.DeleteItemFromSession(product);
             return result;
-        }
-
-        public Product FindProductInShoppingCartById(Product product)
-        {
-            var item = products.Find(x => x.Id == product.Id);
-            return item;
         }
 
         public IEnumerable<Product> GetAllProducts()

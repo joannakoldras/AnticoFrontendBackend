@@ -8,80 +8,75 @@ using System.Web.Mvc;
 
 namespace WebApi.Session
 {
-     public class SessionHelper 
+    public class SessionHelper
     {
-        private IHttpContextAccessor httpContextAccessor;
-        private int sessionItemCounter; 
-        public SessionHelper()
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private int sessionItemCounter;
+        public SessionHelper(IHttpContextAccessor httpContextAccessor)
         {
-            httpContextAccessor = new HttpContextAccessor();
+            _httpContextAccessor = httpContextAccessor;
             sessionItemCounter = 0;
-            CountItemsInSession(); 
+            CountItemsInSession();
         }
         public void SetSessionWithValue(object value)
         {
-            SetObjectAsJson("1", value); 
+            SetObjectAsJson(value);
         }
 
         public IEnumerable<Product> GetAllItemsFromSession()
         {
-            var items = new List<Product>(); 
-            for (int i=0; i<sessionItemCounter; i++)
+            var items = new List<Product>();
+            for (int i = 0; i < sessionItemCounter; i++)
             {
-               // var sessionItem = GetObjectFromJson<Product>(i.ToString()); 
-                //items.Add(sessionItem); 
-            } 
-            return items;  
+                var sessionItem = GetObjectFromJson<Product>(i.ToString());
+                items.Add(sessionItem);
+            }
+            return items;
         }
 
-        private void SetObjectAsJson(string key, object value)
+        private void SetObjectAsJson(object value)
         {
-            //httpContextAccessor.HttpContext.Session.SetString(sessionItemCounter.ToString(), JsonConvert.SerializeObject(value));
+            _httpContextAccessor.HttpContext.Session.SetString(sessionItemCounter.ToString(), JsonConvert.SerializeObject(value));
         }
 
-        //private T GetObjectFromJson<T>(string key)
-        //{
-        //    //var value = httpContextAccessor.HttpContext.Session.GetString(key);
-        //    //return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value); 
-        //    return string.Empty; 
-        //}
+        private T GetObjectFromJson<T>(string key)
+        {
+            var value = _httpContextAccessor.HttpContext.Session.GetString(key);
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
+        }
 
-        //do naprawy ponowne ustawianie obiektów w sesji
         public bool DeleteItemFromSession(Product product)
         {
             var items = GetAllItemsFromSession().ToList();
-            var itemToDelete = items.Where(x => x.Id == product.Id).FirstOrDefault(); 
+            var itemToDelete = items.Where(x => x.Id == product.Id).FirstOrDefault();
 
-            if(itemToDelete != null)
+            if (itemToDelete != null)
             {
-                items.Remove(itemToDelete); 
+                items.Remove(itemToDelete);
             }
             else
             {
-                return false; 
+                return false;
             }
 
-            ClearSession(); 
-            var counter = 0; 
-            
+            ClearSession();
+
             foreach (var item in items)
             {
-                SetObjectAsJson(counter.ToString(), item); 
-                counter++; 
+                SetObjectAsJson(item);
+                CountItemsInSession();
             }
-            return true; 
+            return true;
         }
 
         private void ClearSession()
         {
-            httpContextAccessor.HttpContext.Session.Clear(); 
+            _httpContextAccessor.HttpContext.Session.Clear();
         }
 
         private void CountItemsInSession()
         {
-            sessionItemCounter = httpContextAccessor.HttpContext.Session.Keys.Count(); 
+            sessionItemCounter = _httpContextAccessor.HttpContext.Session.Keys.Count();
         }
-
-
     }
 }
