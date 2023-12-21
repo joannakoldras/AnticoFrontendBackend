@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Graph;
 using Microsoft.OpenApi.Models;
 using System;
 
@@ -71,6 +72,9 @@ namespace AnticoStore
             app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
             
             app.UseRouting();           // odkomentowac aby wlaczyc swaggera
+            app.UseCors(builder => 
+                builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+
             app.UseEndpoints(endpoints =>    //
             {                                //
                 endpoints.MapControllers();  //  odkomentowac aby wlaczyc swaggera
