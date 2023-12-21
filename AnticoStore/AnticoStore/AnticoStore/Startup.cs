@@ -41,7 +41,9 @@ namespace AnticoStore
             //
 
             services.AddControllers();                                             // odkomentowac aby wlaczyc swaggera
-            
+            services.AddCors(options => { options.AddPolicy("AllowAll", 
+                builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); });
+
             services.AddSwaggerGen(c => {                                          //  
                 c.SwaggerDoc("v1", new OpenApiInfo                                 //  
                 {                                                                  //  
@@ -72,8 +74,7 @@ namespace AnticoStore
             app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
             
             app.UseRouting();           // odkomentowac aby wlaczyc swaggera
-            app.UseCors(builder => 
-                builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+            app.UseCors("AllowAll"); 
 
             app.UseEndpoints(endpoints =>    //
             {                                //
