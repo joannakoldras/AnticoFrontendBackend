@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Database
-build_property.ProjectDir = C:\AnticoFrontendBackend\AnticoStore\AnticoStore\Database\
+build_property.ProjectDir = C:\Users\Nastia\Documents\GitHub\AnticoFrontendBackend\AnticoStore\AnticoStore\Database\
