@@ -1,5 +1,5 @@
 .product-list {
-  width: 75%;
+  width: 100%;
   padding: 16px;
   display: flex;
   flex-wrap: nowrap;
@@ -10,6 +10,6 @@
 .main-content {
   display: flex;
   flex-wrap: nowrap;
-  gap: 16px; /* Додано зазор між продуктами */
+  gap: 7px; 
 }
 

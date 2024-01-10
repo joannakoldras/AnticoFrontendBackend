@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./SignupPage.css";
 
 function LoginPage() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  let [loading,setLoading]=useState(false)
+  let [loading, setLoading] = useState(false)
   let [name, setName] = useState("");
   let [lastname, setLastName] = useState("");
   let [phone, setPhone] = useState("");
 
-  
+
   return (<>
     {loading}
     <div>
       <div className="boxsignup">
-      <Link to="/login">Login</Link>
+        <Link to="/login">Login</Link>
         <form onSubmit>
-        <button>Kontynuj przez Facebooka</button>
-        <button>Kontynuj przez konto Google</button>
+          <button>Kontynuj przez Facebooka</button>
+          <button>Kontynuj przez konto Google</button>
 
-         <label>Name</label>
+          <label>Name</label>
           <br />
           <input
             className="input"
@@ -30,8 +30,8 @@ function LoginPage() {
             onChange={(e) => setName(e.target.value)}
             name="name"
           />
-
-        <label>Last Name</label>
+          <br />
+          <label>Last Name</label>
           <br />
           <input
             className="input"
@@ -40,7 +40,7 @@ function LoginPage() {
             onChange={(e) => setLastName(e.target.value)}
             lastname="lastname"
           />
-
+          <br />
           <label>Email</label>
           <br />
           <input
@@ -51,7 +51,8 @@ function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-           <label>Phone</label>
+          <br />
+          <label>Phone</label>
           <br />
           <input
             className="input"
@@ -75,10 +76,11 @@ function LoginPage() {
           <br />
           <button>Zarejestruj się</button>
         </form>
-      </div> 
+      </div>
     </div>
-    </>
-  );}
+  </>
+  );
+}
 
 
 export default LoginPage;

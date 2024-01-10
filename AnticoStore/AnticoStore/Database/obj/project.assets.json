@@ -1025,19 +1025,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joannakoldras\\.nuget\\packages\\": {}
+    "C:\\Users\\Nastia\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
+      "projectUniqueName": "C:\\Users\\Nastia\\Documents\\GitHub\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
       "projectName": "Database",
-      "projectPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
-      "packagesPath": "C:\\Users\\joannakoldras\\.nuget\\packages\\",
-      "outputPath": "C:\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\obj\\",
+      "projectPath": "C:\\Users\\Nastia\\Documents\\GitHub\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\Database.csproj",
+      "packagesPath": "C:\\Users\\Nastia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nastia\\Documents\\GitHub\\AnticoFrontendBackend\\AnticoStore\\AnticoStore\\Database\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\joannakoldras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nastia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1083,7 +1087,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

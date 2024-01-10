@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AnticoStore",
+    "\\AnticoStore\\AnticoStore",
+    "\\AnticoStore\\AnticoStore\\AnticoStore",
+    "\\AnticoStore\\AnticoStore\\AnticoStore\\ClientApp",
+    "\\AnticoStore\\AnticoStore\\AnticoStore\\ClientApp\\src",
+    "\\AnticoStore\\AnticoStore\\AnticoStore\\ClientApp\\src\\pages",
+    "\\AnticoStore\\AnticoStore\\AnticoStore\\Controllers",
+    "\\AnticoStore\\AnticoStore\\WebApi",
+    "\\AnticoStore\\AnticoStore\\WebApi\\Session"
+  ],
+  "SelectedNode": "\\AnticoStore\\AnticoStore\\AnticoStore\\Startup.cs",
+  "PreviewInSolutionExplorer": false
+}

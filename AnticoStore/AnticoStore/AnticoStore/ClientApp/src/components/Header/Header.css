@@ -7,7 +7,7 @@
 }
 
 .header{
-  position: sticky;
+  position: static;
   height: 85px;
   top: 0;
   left: 0;

@@ -31,24 +31,24 @@ namespace AnticoStore
             });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
 
-            //services.AddControllersWithViews();                                      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
-            // In production, the React files will be served from this directory     
-            //services.AddSpaStaticFiles(configuration =>                              //front
-            //{                                                                        //
-            //    configuration.RootPath = "ClientApp/build";                          // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
-            //});                                                                     // Wazne ! - ustawiæ URL w Project -> Properties -> Debug ->  Opcja: Launch browser ---- na pusty URL - ma tam nie byæ nic
-            //
-
-            services.AddControllers();                                             // odkomentowac aby wlaczyc swaggera
+            services.AddControllersWithViews();                                      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
+             //In production, the React files will be served from this directory     
+            services.AddSpaStaticFiles(configuration =>                              //front
+            {                                                                        //
+                configuration.RootPath = "ClientApp/build";                          // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
+            });                                                                     // Wazne ! - ustawiæ URL w Project -> Properties -> Debug ->  Opcja: Launch browser ---- na pusty URL - ma tam nie byæ nic
             
-            services.AddSwaggerGen(c => {                                          //  
-                c.SwaggerDoc("v1", new OpenApiInfo                                 //  
-                {                                                                  //  
-                    Title = "SwaggerDemoApplication",                              // odkomentowac aby wlaczyc swaggera
-                    Version = "v1"                                                 // Wazne ! - ustawiæ URL w Project -> Properties -> Debug -> Opcja: Launch browser ---- swagger/index.html
-                });                                                                //  
-            });
-        }
+
+            //services.AddControllers();                                             // odkomentowac aby wlaczyc swaggera
+            //
+            //services.AddSwaggerGen(c => {                                          //  
+            //    c.SwaggerDoc("v1", new OpenApiInfo                                 //  
+            //    {                                                                  //  
+            //        Title = "SwaggerDemoApplication",                              // odkomentowac aby wlaczyc swaggera
+            //        Version = "v1"                                                 // Wazne ! - ustawiæ URL w Project -> Properties -> Debug -> Opcja: Launch browser ---- swagger/index.html
+            //    });                                                                //  
+            //});
+        }   //
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -66,39 +66,39 @@ namespace AnticoStore
 
             app.UseSession(); 
 
-            app.UseSwagger();           // odkomentowac aby wlaczyc swaggera
-            app.UseSwaggerUI();         // odkomentowac aby wlaczyc swaggera
-            app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
-            
-            app.UseRouting();           // odkomentowac aby wlaczyc swaggera
-            app.UseEndpoints(endpoints =>    //
-            {                                //
-                endpoints.MapControllers();  //  odkomentowac aby wlaczyc swaggera
-            });                              //
-                                             //
+            //app.UseSwagger();           // odkomentowac aby wlaczyc swaggera
+            //app.UseSwaggerUI();         // odkomentowac aby wlaczyc swaggera
+            //app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
+            //
+            //app.UseRouting();           // odkomentowac aby wlaczyc swaggera
+            //app.UseEndpoints(endpoints =>    //
+            //{                                //
+            //    endpoints.MapControllers();  //  odkomentowac aby wlaczyc swaggera
+            //});                              //
+            //                                 //
             //app.UseAuthorization();     // odkomentowac aby wlaczyc swaggera
             //
-            //app.UseStaticFiles();         // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
-            //app.UseSpaStaticFiles();      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
-            //
-            //app.UseRouting();             // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
-            //
-            //app.UseEndpoints(endpoints =>                                  //
-            //{                                                              //
-            //    endpoints.MapControllerRoute(                              //
-            //        name: "default",                                       // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
-            //        pattern: "{controller}/{action=Index}/{id?}");         //
-            //});                                                            //
-            //
-            //app.UseSpa(spa =>                                              // 
-            //{                                                              //
-            //    spa.Options.SourcePath = "ClientApp";                      //
-            //                                                               //
-            //    if (env.IsDevelopment())                                   // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
-            //    {                                                          //
-            //        spa.UseReactDevelopmentServer(npmScript: "start");     //
-            //    }                                                          //
-            //});                                                            //
+            app.UseStaticFiles();         // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
+            app.UseSpaStaticFiles();      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
+            
+            app.UseRouting();             // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
+            
+            app.UseEndpoints(endpoints =>                                  //
+            {                                                              //
+                endpoints.MapControllerRoute(                              //
+                    name: "default",                                       // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
+                    pattern: "{controller}/{action=Index}/{id?}");         //
+            });                                                            //
+            
+            app.UseSpa(spa =>                                              // 
+            {                                                              //
+                spa.Options.SourcePath = "ClientApp";                      //
+                                                                           //
+                if (env.IsDevelopment())                                   // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem
+                {                                                          //
+                    spa.UseReactDevelopmentServer(npmScript: "start");     //
+                }                                                          //
+            });                                                            //
         }
     }
 }
