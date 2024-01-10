@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -40,18 +41,21 @@ namespace AnticoStore.Controllers
             return _productFinderService.GetProductsByCategory(category);
         }
 
+        [Authorize]
         [HttpPost]
         public DataResult AddProduct(ProductViewModel product)
         {
             return _productCrudService.AddProductToDb(product);
         }
 
+        [Authorize]
         [HttpPut]
         public DataResult UpdateProduct(ProductViewModel product)
         {
             return _productCrudService.UpdateProductInDb(product);
         }
 
+        [Authorize]
         [HttpDelete]
         public DataResult DeleteProduct(ProductViewModel product)
         {

@@ -11,5 +11,6 @@ namespace WebApi.Services.UserServices
     public interface IRegisterService
     {
         DataResult RegisterUser(UserViewModel userVM);
+        DataResult LoginUser(LoginViewModel loginVM); 
     }
 }

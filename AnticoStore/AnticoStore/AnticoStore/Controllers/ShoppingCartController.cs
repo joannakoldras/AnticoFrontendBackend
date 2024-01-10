@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,21 @@ namespace AnticoStore.Controllers
             _shoppingCartService = new ShoppingCartService(httpContextAccessor);
         }
 
+        [Authorize]
         [HttpPost("Products")]
         public DataResult AddProductToShoppingCart(ProductViewModel product)
         {
             return _shoppingCartService.AddProductToShoppingCart(product);
         }
 
+        [Authorize]
         [HttpGet("Products")]
         public DataResult GetAllProductsFromShoppingCart()
         {
             return _shoppingCartService.GetAllProductsFromShoppingCart(); 
         }
 
+        [Authorize]
         [HttpDelete("Products")]
         public DataResult DeleteProductFromShoppingCart(ProductViewModel product)
         {

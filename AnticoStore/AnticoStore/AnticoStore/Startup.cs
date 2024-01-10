@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,7 +30,7 @@ namespace AnticoStore
             {
                 options.IdleTimeout = TimeSpan.FromSeconds(10); 
             });
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             //services.AddControllersWithViews();                                      // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
             // In production, the React files will be served from this directory     
@@ -38,6 +39,12 @@ namespace AnticoStore
             //    configuration.RootPath = "ClientApp/build";                          // odkomentowac aby wlaczyc aplikacje dzialajaca z frontendem 
             //});                                                                     // Wazne ! - ustawiæ URL w Project -> Properties -> Debug ->  Opcja: Launch browser ---- na pusty URL - ma tam nie byæ nic
             //
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+                {
+                    options.LoginPath = "/Login"; 
+                });
+            services.AddAuthorization(); 
 
             services.AddControllers();                                             // odkomentowac aby wlaczyc swaggera
             
@@ -82,6 +89,10 @@ namespace AnticoStore
             app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
             
             app.UseRouting();           // odkomentowac aby wlaczyc swaggera
+
+            app.UseAuthentication(); 
+            app.UseAuthorization(); 
+
             app.UseCors("AllowAll"); 
 
             app.UseEndpoints(endpoints =>    //

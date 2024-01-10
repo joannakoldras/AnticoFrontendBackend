@@ -42,5 +42,20 @@ namespace WebApi.Services.UserServices
                 return new DataResult(true, "User successfully registered");
             }
         }
+
+        public DataResult LoginUser(LoginViewModel loginVM)
+        {
+            using (var dbContext = new AnticoDbContext())
+            {
+                var encryptedPassword = _passwordEncrypter.Encrypt(loginVM.Password);
+                var dbUser = dbContext.Users.Where(x => x.Email == loginVM.Email &&
+                x.EncryptedPassword == encryptedPassword);
+
+                if (dbUser.Count() != 0)
+                    return new DataResult(true, "User exists!");
+                else 
+                    return new DataResult(false, "User doesn't exist"); 
+            }
+        }
     }
 }
