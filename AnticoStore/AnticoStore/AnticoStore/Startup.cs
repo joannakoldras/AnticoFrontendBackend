@@ -64,13 +64,26 @@ namespace AnticoStore
                 app.UseHsts();
             }
 
-            app.UseSession(); 
+            app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
+            
+            app.UseRouting();           // odkomentowac aby wlaczyc swaggera
+
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin());
+            app.UseCors(builder =>
+               builder.AllowAnyHeader());
+            app.UseCors(builder =>
+               builder.AllowAnyMethod());
+
+            app.UseSession();
 
             app.UseSwagger();           // odkomentowac aby wlaczyc swaggera
             app.UseSwaggerUI();         // odkomentowac aby wlaczyc swaggera
             app.UseHttpsRedirection();  // odkomentowac aby wlaczyc swaggera
             
             app.UseRouting();           // odkomentowac aby wlaczyc swaggera
+            app.UseCors("AllowAll"); 
+
             app.UseEndpoints(endpoints =>    //
             {                                //
                 endpoints.MapControllers();  //  odkomentowac aby wlaczyc swaggera
