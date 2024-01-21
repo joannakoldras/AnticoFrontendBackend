@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductList from '../Content/ProductList/ProductList';
 import './Account.css';
-import products from '../../products';
 
 
 function Account() {
@@ -33,7 +32,7 @@ function Account() {
           <button className="account-button selected">Wybrane</button>
         </div>
         <div className="productlist-wrapper">
-          <ProductList products={products} />
+          <ProductList  />
         </div>
       </div>
     </div>

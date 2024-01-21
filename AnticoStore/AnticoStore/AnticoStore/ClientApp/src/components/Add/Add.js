@@ -1,21 +1,24 @@
 import React, { Fragment, useState, useContext } from "react";
 import "./Add.css";
 
-const Add = () => {
+function Add() {
 
-  let [name, setName] = useState("");
-  let [category, setCategory] = useState("");
-  let [price, setPrice] = useState("");
-  let [description, setDescription] = useState("");
-  let [image, setImage] = useState();
-  let [loading,setLoading]=useState(false);
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   return (
     <Fragment>
-    { loading  }
+      {loading}
       <div className="centerDiv">
-      <p> Dodaj ogłoszenie</p>
+        <p> Dodaj ogłoszenie</p>
+
+        <div className="title">
         <label>Tytuł</label>
-        <br />
         <input
           className="input"
           type="text"
@@ -25,14 +28,43 @@ const Add = () => {
             setName(e.target.value);
           }}
         />
-        <br />
-        <label>Kategoria:</label>
+        </div>
+
+        <div className="description">
+        <label>Opis</label>
+        <textarea
+          className="input"
+          type="textarea"
+          name="Description"
+          value={description}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+        </div>
+
+        <div className="location">
+        <label>Lokalizacja</label>
+        <input
+          className="input"
+          type="text"
+          name="Location"
+          value={location}
+          onChange={(e) => {
+            setLocation(e.target.value);
+          }}
+        />
+        </div>
+
+        <div className="categories">
+        <label>Kategoria</label>
         <select
+        className="input"
           name="Category"
           onChange={(e) => {
             setCategory(e.target.value);
           }}
-          className="input"
+          
         > <option >Wybierz kategorie</option>
           <option value="painting">Malarstwo</option>
           <option value="jewelry">Biżuteria</option>
@@ -42,9 +74,11 @@ const Add = () => {
           <option value="literature">Literatura</option>
           <option value="other">Pozostałe</option>
         </select>
+        </div>
         <br />
+
+        <div className="price">
         <label>Cena</label>
-        <br />
         <input
           className="input"
           type="number"
@@ -54,40 +88,31 @@ const Add = () => {
             setPrice(e.target.value);
           }}
         />
-        <br />
-        <label>Opis</label>
-        <br />
-        <input
-          className="input"
-          type="text"
-          name="Description"
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-        />
-        <br />
+         </div>
 
-        <br />
-        <img
-          alt="Posts"
-          width="200px"
-          height="200px"
-          src={image ? URL.createObjectURL(image) : ""}
-        ></img>
-
-        <br />
+         <div className="posts">
+  {images.map((img, index) => (
+    <img
+      key={index}
+      alt={`Post ${index}`}
+      width="200px"
+      height="200px"
+      src={URL.createObjectURL(img)}
+    />
+  ))}
+  <br />
         <input
           type="file"
           onChange={(e) => {
-            setImage(e.target.files[0]);
+            setImages([...images, e.target.files[0]]);
           }}
         />
         <br />
         <button className="uploadBtn" >
           Dodaj ogłoszenie
         </button>
-      </div> 
+        </div>
+      </div>
     </Fragment>
   );
 };

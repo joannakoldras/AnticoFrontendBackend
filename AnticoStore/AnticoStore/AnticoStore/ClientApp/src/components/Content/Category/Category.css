@@ -3,7 +3,7 @@
 }
 .box{
   
-  background-color: #ccc;
+  background-color: rgb(255, 255, 255);
   width: 350px;
   height: 400px;
   padding: 30px;
@@ -13,4 +13,8 @@
   font-size: 30px;
 }
 
+.category {
+  background-color: #f6f6f6;
+  height: 36px;
+}
 

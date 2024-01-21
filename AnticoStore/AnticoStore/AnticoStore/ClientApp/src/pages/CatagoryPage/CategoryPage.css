@@ -1,4 +1,4 @@
-.productpage-container {
+.categorypage-container {
     margin: 20px 300px;
     width: 1280px;
     display: flex;
@@ -17,25 +17,13 @@
     width: 70%;
   }
   
-  .searchbar-slider-wrapper {
-    width: 67%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
   .searchbar-wrapper {
     width: 100%;
   }
   
-  .slider-wrapper {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .productlist-wrapper {
+  .categorylist-wrapper {
     width: 110%;
-    margin-top:15px;
+    margin-top:5px;
     display: flex;
     flex-wrap: nowrap; /* Змінила на nowrap */
     overflow-x: auto; /* Додала можливість прокрутки горизонтально */

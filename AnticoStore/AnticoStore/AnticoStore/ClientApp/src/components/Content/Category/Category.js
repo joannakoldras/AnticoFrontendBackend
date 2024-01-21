@@ -2,23 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Category.css';
 
-
 function Category() {
-  const categories = ['Wszystkie','Malarstwo', 'Biżuteria', 'Meble', 'Lampy', 'Zegary', 'Porcelana i cenamika','Literatura','Pozostałe'];
+  const categories = ['wszystkie', 'malarstwo', 'biżuteria', 'meble', 'lampy', 'zegary', 'porcelana i ceramika', 'literatura', 'pozostałe'];
 
   return (
     <div className='box'>
-    <h2>Kategorie</h2>
-    
-    <ul className='category-list'>
+      <h2>Kategorie</h2>
+
+      <ul className='category-list'>
         {categories.map((category, index) => (
-          <li key={index}>
-            <Link to={`/${category}`}>{category}</Link>
-          </li>
+          <div className='category' key={index}>
+            <li>
+              <Link to={`/category/${encodeURIComponent(category)}`}>{category}</Link>
+            </li>
+          </div>
         ))}
-    </ul>
-   
-  </div>
+      </ul>
+    </div>
   );
 }
 

@@ -15,3 +15,9 @@ function ProductList({ products }) {
 }
 
 export default ProductList;
+// const {categoryName} = useParams();
+  // const[products, setProducts] = useState([]);
+
+  // fetch(`/api/products?category=${categoryName}`)
+    //   .then(response => response.json())
+    //   .then(data => setProductList(data));
