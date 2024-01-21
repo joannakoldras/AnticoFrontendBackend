@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 function LoginPage() {
-  const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -12,19 +13,23 @@ function LoginPage() {
 
     try {
       setLoading(true);
-      const response = await fetch("https://localhost:44343/Login", {
+      const response = await fetch("https://localhost:44343/User/Login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ Email, Password }),
+        body: JSON.stringify({ email, password }),
       });
-
-      // Handle the response...
+  
       const result = await response.json();
       console.log(result);
-
-      // Additional logic based on the response
+  
+      if (result.success) {
+        // Redirect to "/account" upon successful login
+        navigate("/");
+      } else {
+        // Additional logic based on the response
+      }
     } catch (error) {
       console.error("Error during login:", error);
     } finally {
@@ -37,7 +42,7 @@ function LoginPage() {
       {loading && <div>Loading...</div>}
       <div className="login-container">
         <div className="boxlogin">
-          <Link to="/signup">Signup</Link>
+          <Link to="/Register">Signup</Link>
           <form onSubmit={handleSubmit} method="post">
             <button>Kontynuj przez Facebooka</button>
             <button>Kontynuj przez konto Google</button>
@@ -49,8 +54,9 @@ function LoginPage() {
               type="email"
               placeholder="sijeesh@gmail.com"
               name="email"
-              value={Email}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="username"
             />
             <br />
             <label>Password</label>
@@ -60,8 +66,9 @@ function LoginPage() {
               type="password"
               name="password"
               placeholder="password"
-              value={Password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
             />
             <br />
             <br />

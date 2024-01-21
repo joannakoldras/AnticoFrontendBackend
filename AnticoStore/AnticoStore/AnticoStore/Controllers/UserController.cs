@@ -24,13 +24,13 @@ namespace AnticoStore.Controllers
             _registerService = new RegisterService();
         }
 
-        [HttpPost("/Register")]
+        [HttpPost("Register")]
         public DataResult RegisterUser(UserViewModel userVM)
         {
             return _registerService.RegisterUser(userVM);
         }
 
-        [HttpPost("/Login")]
+        [HttpPost("Login")]
         public DataResult LogIn(LoginViewModel loginVM)
         {
             var result = _registerService.LoginUser(loginVM);
