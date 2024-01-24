@@ -12,5 +12,6 @@ namespace WebApi.Services.ProductServices
         public DataResult GetAllProducts();
         public DataResult GetProductsByCategory(string category);
         public DataResult FindProducts(string searchString);
+        public DataResult GetProductById(int productId);
     }
 }

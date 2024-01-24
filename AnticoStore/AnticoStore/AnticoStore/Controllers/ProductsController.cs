@@ -29,7 +29,7 @@ namespace AnticoStore.Controllers
             return _productFinderService.GetAllProducts();
         }
 
-        [HttpGet("{searchString}")]
+        [HttpGet("search/{searchString}")]
         public DataResult FindProducts(string searchString)
         {
             return _productFinderService.FindProducts(searchString);
@@ -39,6 +39,12 @@ namespace AnticoStore.Controllers
         public DataResult GetProductsByCategory(string category)
         {
             return _productFinderService.GetProductsByCategory(category);
+        }
+
+        [HttpGet("{productId}", Name = "GetProductById")]
+        public DataResult GetProductById(int productId)
+        {
+            return _productFinderService.GetProductById(productId);
         }
 
         [Authorize]

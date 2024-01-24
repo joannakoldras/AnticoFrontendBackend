@@ -118,5 +118,27 @@ namespace WebApi.Services.ProductServices
 
             return vMProducts;
         }
+
+        public DataResult GetProductById(int productId)
+        {
+            try
+            {
+                using (var db = new AnticoDbContext())
+                {
+                    var product = db.Products.Find(productId);
+
+                    if (product == null)
+                        return new DataResult(false, "Product not found");
+
+                    var vMProduct = product.ToProductViewModel();
+
+                    return new DataResult(true, new List<ProductViewModel> { vMProduct });
+                }
+            }
+            catch (Exception ex)
+            {
+                return new DataResult(false, ex.Message);
+            }
+        }
     }
 }
