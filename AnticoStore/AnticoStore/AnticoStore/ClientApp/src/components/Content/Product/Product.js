@@ -1,9 +1,39 @@
 import React from 'react';
 import './Product.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function Product({ product }) {
   const { id, name, description, price, image } = product;
+  const navigate = useNavigate();
+
+  const handleAddToCart = async () => {
+    try {
+      const response = await fetch("https://localhost:44343/ShoppingCart/Products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id, name, description, price, image }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to add to cart: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Product added to cart successfully!");
+        // You can add further logic here if needed
+        navigate("/basket");
+      } else {
+        console.error("Failed to add to cart:", result.message);
+      }
+    } catch (error) {
+      console.error('Error during addToCart:', error.message);
+    }
+  };
 
   return (
     <div className="product-card">
@@ -15,6 +45,9 @@ function Product({ product }) {
         <p>{name}</p>
         <p>{description}</p>
       </div>
+      <button className="product-button" onClick={handleAddToCart}>
+        Dodaj 
+      </button>
     </div>
   );
 }
