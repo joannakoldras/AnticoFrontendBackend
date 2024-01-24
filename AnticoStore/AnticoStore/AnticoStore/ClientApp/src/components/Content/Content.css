@@ -34,9 +34,9 @@
 }
 
 .productlist-wrapper {
-  width: 110%;
-  margin-top:15px;
-  display: flex;
+  width: 100%;
+  margin-top:16px;
+  display: grid;
   flex-wrap: nowrap; /* Змінила на nowrap */
-  overflow-x: auto; /* Додала можливість прокрутки горизонтально */
+  overflow-y: auto; /* Додала можливість прокрутки горизонтально */
 }
