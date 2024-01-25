@@ -54,7 +54,7 @@
   width: 550px;
   height: 70px;
   left: 700px;
-  top: 420px;
+  top: 400px;
   border-style: solid;
   background: #Fff;
   border-color: #d9d9d9;
@@ -67,7 +67,7 @@
   width: 550px;
   height: 70px;
   left: 700px;
-  top: 530px;
+  top: 490px;
   border-style: solid;
   background: #Fff;
   border-color: #d9d9d9;
@@ -80,6 +80,18 @@
   height: 390px;
   left: 50px;
   top: 320px;
+  border-style: solid;
+  background: #Fff;
+  border-color: #d9d9d9;
+  border-width: 1px;
+}
+
+.availability{
+  position: absolute;
+  width: 550px;
+  height: 70px;
+  left: 700px;
+  top: 580px;
   border-style: solid;
   background: #Fff;
   border-color: #d9d9d9;
