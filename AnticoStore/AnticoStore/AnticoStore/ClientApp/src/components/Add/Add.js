@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import "./Add.css";
 
 function Add() {
@@ -11,42 +12,48 @@ function Add() {
   const [images, setImages] = useState("");
   const [isAvaliable, setIsAvailable] = useState(true); // Added isAvailable state
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleAddProduct = async () => {
     try {
       setLoading(true);
       const formData = {
         name,
-        category,
+        category: parseInt(category),
         price,
         description,
         images,
-        isAvaliable, 
+        isAvaliable,
       };
-
+  
+      console.log('Sending Payload:', formData);
+  
       const response = await fetch('https://localhost:44343/Products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // You might need to include an authentication token if your backend requires it
-          // 'Authorization': `Bearer ${YOUR_AUTH_TOKEN}`,
         },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
-
+      console.log('Backend Response:', result);
+  
       if (result.success) {
-        
+        navigate("/");
         console.log('Advertisement added successfully!');
-      } else {
         
+      } else {
         console.error(result.message);
+  
+        if (result.errors) {
+          console.error('Validation errors:', result.errors);
+        }
       }
     } catch (error) {
       console.error('Error adding advertisement:', error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -105,13 +112,13 @@ function Add() {
             }}
           >
             <option>Wybierz kategorie</option>
-            <option value="malarstwo">malarstwo</option>
-            <option value="niżuteria">biżuteria</option>
-            <option value="meble">Meble</option>
-            <option value="lampy">Lampy</option>
-            <option value="porcelain&ceramics">Porcelana i ceramika</option>
-            <option value="literatura">Literatura</option>
-            <option value="pozostałe">Pozostałe</option>
+            <option value="1">malarstwo</option>
+            <option value="2">biżuteria</option>
+            <option value="3">Meble</option>
+            <option value="4">Lampy</option>
+            <option value="5">Porcelana i ceramika</option>
+            <option value="6">Literatura</option>
+            <option value="7">Pozostałe</option>
           </select>
         </div>
         <br />
