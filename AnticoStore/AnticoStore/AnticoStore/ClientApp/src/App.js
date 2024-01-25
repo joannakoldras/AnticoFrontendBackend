@@ -9,6 +9,7 @@ import AccountPage from './pages/AccountPage/AccountPage'
 import ProfileInformationPage from './pages/ProfileInformationPage/ProfileInformationPage';
 import ProductPage from './pages/ProductPage/ProductPage';
 import CategoryPage from './pages/CatagoryPage/CategoryPage';
+import DocumentationPage from './pages/DocumentationPage/DocumentationPage';
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
           <Route path="/profileinformation" element={<ProfileInformationPage/>} />
           <Route path='/product/:id' element={<ProductPage/>}/>
           <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/documentation" element={<DocumentationPage/>} />
+
         </Routes>
       </div>
     </Router>
