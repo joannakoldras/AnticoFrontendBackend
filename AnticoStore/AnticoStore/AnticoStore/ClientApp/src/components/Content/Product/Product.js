@@ -43,7 +43,6 @@ function Product({ product }) {
       <div className="product-details">
         <p>{price} zł</p>
         <p>{name}</p>
-        <p>{description}</p>
       </div>
       <button className="product-button" onClick={handleAddToCart}>
         Dodaj 

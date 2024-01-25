@@ -57,16 +57,17 @@ function ProductPage() {
             <Category />
           </div>
           <div className="slider-wrapper">
+          {console.log("Product in ProductPage:", product)}
             <ProductDetails product={product} />
           </div>
-          <div className="productlist-wrapper">
-    {loading ? (
-        <p>Wczytywanie danych...</p>
-      ) : (
-        <ProductList products={products} />
-      )}
-    
-    </div>
+        </div>
+        <div className="productlist-wrapper">
+          {loading ? (
+            <p>Wczytywanie danych...</p>
+          ) : (
+            <ProductList products={products} />
+          )}
+
         </div>
       </div>
       <Footer />

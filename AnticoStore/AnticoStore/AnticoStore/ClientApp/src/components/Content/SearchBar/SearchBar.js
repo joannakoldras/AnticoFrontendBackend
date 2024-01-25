@@ -13,7 +13,7 @@ function SearchBar ({ onSearch }) {
             <input
                 type="text"
                 className="search-box"
-                placeholder="Search product"
+                placeholder="Wyszukaj produkt"
                 value={searchString}
                 onChange={(e) => setSearchString(e.target.value)}
             />

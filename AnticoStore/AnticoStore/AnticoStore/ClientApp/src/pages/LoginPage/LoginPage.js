@@ -59,7 +59,7 @@ function LoginPage() {
               autoComplete="username"
             />
             <br />
-            <label>Password</label>
+            <label>Hasło</label>
             <br />
             <input
               className="input"
@@ -72,7 +72,7 @@ function LoginPage() {
             />
             <br />
             <br />
-            <button type="submit">Login</button>
+            <button className="login-button">Login</button>
           </form>
         </div>
       </div>

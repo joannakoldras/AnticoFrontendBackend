@@ -61,7 +61,7 @@ function SignupPage() {
             <button>Kontynuj przez Facebooka</button>
             <button>Kontynuj przez konto Google</button>
 
-            <label>Name</label>
+            <label>Imie</label>
             <br />
             <input
               className="input"
@@ -71,7 +71,7 @@ function SignupPage() {
               name="name"
             />
             <br />
-            <label>Last Name</label>
+            <label>Nazwisko</label>
             <br />
             <input
               className="input"
@@ -92,7 +92,7 @@ function SignupPage() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <br />
-            <label>Phone</label>
+            <label>Telefon</label>
             <br />
             <input
               className="input"
@@ -102,7 +102,7 @@ function SignupPage() {
               name="phone"
             />
             <br />
-            <label>Password</label>
+            <label>Hasło</label>
             <br />
             <input
               className="input"
