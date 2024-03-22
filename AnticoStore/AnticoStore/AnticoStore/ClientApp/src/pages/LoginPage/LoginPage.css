@@ -1,12 +1,16 @@
 
+
 .login-container {
   background-size: cover;
   background-position: center;
+  background-color: #cccccc;
+  background-image: url("tlo.jpg");
 }
 
 .boxlogin {
     border: 1px solid black;
     width: max-content;
+    
     padding: 20px;
     position: absolute;
     top: 40%;

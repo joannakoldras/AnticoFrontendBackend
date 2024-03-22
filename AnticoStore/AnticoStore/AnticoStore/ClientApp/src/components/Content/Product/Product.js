@@ -2,9 +2,8 @@ import React from 'react';
 import './Product.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-
 function Product({ product }) {
-  const { id, name, description, price, image } = product;
+  const { id, name, description, price, filePathPhoto, isAvaliable } = product;
   const navigate = useNavigate();
 
   const handleAddToCart = async () => {
@@ -14,7 +13,7 @@ function Product({ product }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id, name, description, price, image }),
+        body: JSON.stringify({ id, name, description, price, filePathPhoto, isAvaliable }), // użyj filePathPhoto zamiast image
       });
 
       if (!response.ok) {
@@ -38,7 +37,7 @@ function Product({ product }) {
   return (
     <div className="product-card">
       <Link to={`/product/${id}`}>
-        <img src={image} alt={name} className="product-image" />
+        <img src={`data:image/jpeg;base64,${filePathPhoto}`} alt={name} className="product-image" /> {/* Użyj filePathPhoto jako źródło obrazu */}
       </Link>
       <div className="product-details">
         <p>{price} zł</p>

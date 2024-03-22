@@ -1,3 +1,24 @@
-.product-details{
-    width: 760px; /* Ustaw szerokość */
-}
+.product-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .product-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .product-details-image {
+    width: 160px;
+  height: 100px;
+  object-fit: cover;
+  }

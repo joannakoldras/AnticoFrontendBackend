@@ -1,33 +1,34 @@
 import React, { Fragment, useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Add.css";
 
 function Add() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
-  //const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  //const [images, setImages] = useState([]);
-  const [images, setImages] = useState("");
-  const [isAvaliable, setIsAvailable] = useState(true); // Added isAvailable state
+  const [images, setImages] = useState([]);
+  const [isAvaliable, setIsAvailable] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleAddProduct = async () => {
     try {
       setLoading(true);
+
+      const processedImages = await convertImagesToBase64(images);
+
       const formData = {
         name,
         category: parseInt(category),
         price,
         description,
-        images,
+        FilePathPhoto: processedImages.join(","),
         isAvaliable,
       };
-  
+
       console.log('Sending Payload:', formData);
-  
+
       const response = await fetch('https://localhost:44343/Products', {
         method: 'POST',
         headers: {
@@ -35,17 +36,17 @@ function Add() {
         },
         body: JSON.stringify(formData),
       });
-  
+
       const result = await response.json();
       console.log('Backend Response:', result);
-  
+
       if (result.success) {
         navigate("/");
         console.log('Advertisement added successfully!');
-        
+
       } else {
         console.error(result.message);
-  
+
         if (result.errors) {
           console.error('Validation errors:', result.errors);
         }
@@ -55,6 +56,28 @@ function Add() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const convertImagesToBase64 = (images) => {
+    const promises = [];
+    images.forEach((image) => {
+      promises.push(
+        new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            resolve(reader.result.split(",")[1]); // Get base64 string without data URL prefix
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(image);
+        })
+      );
+    });
+    return Promise.all(promises);
+  };
+
+  const handleFileInputChange = (e) => {
+    const fileList = Array.from(e.target.files);
+    setImages(fileList);
   };
 
   return (
@@ -89,19 +112,6 @@ function Add() {
           />
         </div>
 
-        {/* <div className="location">
-          <label>Lokalizacja</label>
-          <input
-            className="input"
-            type="text"
-            name="Location"
-            value={location}
-            onChange={(e) => {
-              setLocation(e.target.value);
-            }}
-          />
-        </div> */}
-
         <div className="categories">
           <label>Kategoria</label>
           <select
@@ -114,11 +124,11 @@ function Add() {
             <option>Wybierz kategorie</option>
             <option value="1">malarstwo</option>
             <option value="2">biżuteria</option>
-            <option value="3">Meble</option>
-            <option value="4">Lampy</option>
-            <option value="5">Porcelana i ceramika</option>
-            <option value="6">Literatura</option>
-            <option value="7">Pozostałe</option>
+            <option value="3">meble</option>
+            <option value="4">lampy</option>
+            <option value="5">porcelana i ceramika</option>
+            <option value="6">literatura</option>
+            <option value="7">pozostałe</option>
           </select>
         </div>
         <br />
@@ -131,7 +141,8 @@ function Add() {
             name="Price"
             value={price}
             onChange={(e) => {
-              setPrice(e.target.value);
+              const newPrice = e.target.value < 0 ? 0 : e.target.value; // Sprawdzenie, czy cena jest ujemna
+              setPrice(newPrice);
             }}
           />
         </div>
@@ -149,31 +160,13 @@ function Add() {
         </div>
 
         <div className="posts">
-          {/* {images.map((img, index) => (
-            <img
-              key={index}
-              alt={`Post ${index}`}
-              width="200px"
-              height="200px"
-              src={URL.createObjectURL(img)}
-            />
-          ))}
-          <br />
-          <input
-            type="file"
-            onChange={(e) => {
-              setImages([...images, e.target.files[0]]);
-            }}
-          /> */}
-          <label>Images</label>
           <input
             className="input"
-            type="string"
+            type="file"
             name="images"
-            value={images}
-            onChange={(e) => {
-              setImages(e.target.value);
-            }}
+            accept="image/*"
+            multiple
+            onChange={handleFileInputChange}
           />
           <br />
           <button className="uploadBtn" onClick={handleAddProduct}>

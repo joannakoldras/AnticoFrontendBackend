@@ -10,17 +10,15 @@ import ProfileInformationPage from './pages/ProfileInformationPage/ProfileInform
 import ProductPage from './pages/ProductPage/ProductPage';
 import CategoryPage from './pages/CatagoryPage/CategoryPage';
 import DocumentationPage from './pages/DocumentationPage/DocumentationPage';
+import BasketPage from './pages/BasketPage/BasketPage';
 
 const App = () => {
   return (
     <Router>
       <div className='app'>
-        {/* Навігаційне меню */}
         <nav>
           
         </nav>
-
-        {/* Зміст сторінок */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage/>} />
@@ -31,6 +29,7 @@ const App = () => {
           <Route path='/product/:id' element={<ProductPage/>}/>
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/documentation" element={<DocumentationPage/>} />
+          <Route path="/basket" element={<BasketPage/>} />
 
         </Routes>
       </div>

@@ -13,8 +13,16 @@
   font-size: 30px;
 }
 
+.category-list{
+  font-size: 28px;
+  margin-top: 5px;
+  background-color: #f6f6f6;
+}
+
+
+
 .category {
   background-color: #f6f6f6;
-  height: 36px;
+  height: 40px;
 }
 

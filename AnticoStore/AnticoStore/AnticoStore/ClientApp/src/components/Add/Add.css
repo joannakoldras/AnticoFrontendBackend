@@ -26,6 +26,17 @@
   border-width: 1px;
 }
 
+.title input{
+  margin-top: 10px;
+  padding: 7px 400px;
+  border-color: #d9d9d9;
+  background: #F6F6F6;
+}
+.title label{
+  margin-left: 4px;
+  
+}
+
 .description{
   position: absolute;
   width: 1200px;
@@ -37,6 +48,19 @@
   border-color: #d9d9d9;
   border-width: 1px;
 }
+
+.description textarea{
+  margin-top: 15px;
+  margin-left: 45px;
+  padding: 25px 400px;
+  border-color: #d9d9d9;
+  background: #F6F6F6;
+}
+
+.description label{
+  margin-left: 4px;
+}
+
 .location{
   position: absolute;
   width: 550px;
@@ -48,7 +72,9 @@
   border-color: #d9d9d9;
   border-width: 1px;
 }
-
+.body{
+  background-image: none;
+}
 .categories{
   position: absolute;
   width: 550px;
@@ -62,6 +88,10 @@
 
 }
 
+.category label{
+  margin-left: 4px;
+}
+
 .price{
   position: absolute;
   width: 550px;
@@ -72,6 +102,17 @@
   background: #Fff;
   border-color: #d9d9d9;
   border-width: 1px;
+}
+
+.price input{
+  margin-top: 10px;
+  padding: 5px 80px;
+  border-color: #d9d9d9;
+  background: #F6F6F6;
+}
+
+.price label{
+  margin-left: 4px;
 }
 
 .posts{
@@ -96,6 +137,19 @@
   background: #Fff;
   border-color: #d9d9d9;
   border-width: 1px;
+}
+
+.availability input{
+  margin-top: 15px;
+  position: absolute;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.availability label{
+  margin-left: 4px;
+  margin-top: 10px;
 }
 
 
